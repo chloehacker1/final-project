@@ -5,7 +5,7 @@ import time #needed for sleep
 from pygame import mixer #needed to play music
 
 def main():
-
+    
     #Introduce the program
     time.sleep(1.0)
     print("For each set of words, type the corresponding letter to the word that you feel the most association to.\n")
@@ -26,7 +26,7 @@ def main():
     #Ask questions 
     answer1 = input("\nA. Likes Authority \nB. Enthusiastic \nC. Sensitive Feelings \nD. Likes Instructions \n Please type in A, B, C or D:  ")
     while answer1.lower() != "a" and answer1.lower() != "b" and answer1.lower() != "c" and answer1.lower() != "d":
-        print("Sorry I don't understand that response.")
+        print("Sorry I don't understand that response.") #if answer is not a,b,c,d it repeats the question
         answer1 = input("A. Likes Authority \nB. Enthusiastic \nC. Sensitive Feelings \nD. Likes Instructions \n Please type in A, B, C or D:  ")
     if answer1.lower() == "a": #change total of choice as quiz continues
         a += 1
@@ -146,7 +146,7 @@ def main():
     print("\nTime for results!")
     time.sleep(2.0)
 
-    if (a > (b and c and d)): #if choice a was selected the most
+    if (a > (b and c and d)): #if choice 'a' was selected the most
         print("\nYou selected 'A' the most! \nYou are a natural born leader. You may be a boss at work, super decisive and love to solve problems! \nYou may be very confident and self-reliant, leading you to take charge when no one else will.")
         time.sleep(2.0)
         print("Some of your natural strengths may include: Achievement driven, Gets results, Independent, Risk-taker, Takes initiative, and Persistent!")
@@ -158,7 +158,7 @@ def main():
 
         #starting mixer
         mixer.init()    
-        mixer.music.load("queen.mp3")
+        mixer.music.load("queen.mp3") 
         mixer.music.set_volume(0.7)
 
         print("\n1. Another One Bites The Dust \n2. Bohemian Rhapsody \n3. Don't Stop Me Now \n4. Under Pressure \n5. We Will Rock You ")
@@ -170,9 +170,8 @@ def main():
             print("Press 'p' to pause the preview and 'r' to resume")
             print("Or press 'e' to exit")
             button = input("  ")
-            
             if button == 'p':
-        
+
                 #pause the music
                 mixer.music.pause()     
             elif button == 'r':
@@ -275,10 +274,37 @@ def main():
         time.sleep(1.0)
         print("\nHere is Alan Jackson's top tracks from Spotify: ")
         time.sleep(1.0)
-        print("\n1. Chattahoochee \n2. Freight Train \n3. It's Five O'Clock Somewhere \n4. Little Betty \n5. Country Boy")
-    #Music
+        
+        #starting mixer
+        mixer.init()    
+        mixer.music.load("alanjackson.mp3")
+        mixer.music.set_volume(0.7)
 
-    
+        print("\n1. Chattahoochee \n2. Freight Train \n3. It's Five O'Clock Somewhere \n4. Little Betty \n5. Country Boy")
+        
+        #play the top track
+        mixer.music.play()
+
+        #loop for ability to pause, resume, or exit the music
+        while True:
+            print("Press 'p' to pause the preview and 'r' to resume")
+            print("Or press 'e' to exit")
+            button = input("  ")
+            
+            if button == 'p':
+        
+                #pause the music
+                mixer.music.pause()     
+            elif button == 'r':
+        
+                #resume the music
+                mixer.music.unpause()
+            elif button == 'e':
+        
+                #stop the music
+                mixer.music.stop()
+                break
+
     
 if __name__ == "__main__":
     main()
