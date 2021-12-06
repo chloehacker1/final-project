@@ -10,7 +10,7 @@ def main():
     time.sleep(1.0)
     print("For each set of words, type the corresponding letter to the word that you feel the most association to.\n")
     time.sleep(3.0)
-    print("\nFor example, if the words given was: \n A. Bold \n B. Sympathetic \n C. Quiet \n D. Perfectionist \nAnd I related the most to 'Spontaneous' I would type in 'B'. ")
+    print("\nFor example, if the words given was: \n A. Bold \n B. Sympathetic \n C. Quiet \n D. Perfectionist \nAnd I related the most to 'Sympathetic' I would type in 'B'. ")
     time.sleep(3.0)
     print("\nAt the end of this quiz, you will recieve a new music artist to listen to based off your personality!")
     time.sleep(2.0)
